@@ -54,7 +54,6 @@ WHERE book_id = 2;
 UPDATE public.books SET cover = 'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80' 
 WHERE book_id = 3;
 
-
 -- Update authors birth_year
 
 
@@ -68,16 +67,16 @@ SELECT * FROM public.books WHERE category LIKE '%thr%';
 SELECT * FROM public.books WHERE book_name LIKE '%Angels%';
 
 -- Select authors which are “not” older than 60 years
-
+SELECT * FROM public.authors WHERE 2021 - birth_year < 60;
 
 -- Select authors which are older than 40 years old
-
+SELECT * FROM public.authors WHERE 2021 - birth_year > 40;
 
 -- Select only category, published_at from books
 SELECT category, published_at FROM public.books;
 
 -- Count all books
-
+SELECT COUNT(*) public.books;
 
 -- Select authors and order them by age (calculate age in SQL) ASC
 SELECT 2021 - birth_year as age FROM public.authors;
@@ -85,12 +84,11 @@ SELECT 2021 - birth_year as age FROM public.authors;
 -- Select authors and order them by birth_year desc
 SELECT * FROM authors ORDER BY birth_year DESC;
 
-
 -- Delete all the authors from a given country
 DELETE FROM public.authors WHERE country = 'Japan';
 
 -- Delete all the books from a given category
-
+DELETE FROM public.books WHERE category = 'Thriller'
 
 -- Delete all authors if their last_name starts with H
 INSERT INTO public.authors (name, last_name, country, birth_year) VALUES ('Ernest', 'Hemingway', 'US', 1899);
